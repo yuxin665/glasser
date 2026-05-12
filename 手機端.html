@@ -29,313 +29,215 @@ body {
   color: var(--text);
   font-family: 'Noto Sans TC', sans-serif;
   min-height: 100vh;
-  padding-bottom: 40px;
+  padding-bottom: 48px;
 }
 
-/* ── SCREENS ── */
 .screen { display: none; }
 .screen.active { display: block; }
 
-/* ── SELECT GROUP SCREEN ── */
-.sg-header {
-  padding: 48px 28px 28px;
-  text-align: center;
-}
-.sg-tag {
-  font-size: 10px;
-  letter-spacing: 4px;
-  color: var(--gold);
-  font-weight: 700;
-  margin-bottom: 12px;
-}
-.sg-title {
-  font-family: 'Noto Serif TC', serif;
-  font-size: 22px;
-  font-weight: 900;
-  line-height: 1.4;
-  margin-bottom: 8px;
-}
+/* ── SELECT GROUP ── */
+.sg-header { padding: 48px 28px 28px; text-align: center; }
+.sg-tag { font-size: 10px; letter-spacing: 4px; color: var(--gold); font-weight: 700; margin-bottom: 12px; }
+.sg-title { font-family: 'Noto Serif TC', serif; font-size: 24px; font-weight: 900; line-height: 1.4; margin-bottom: 8px; }
 .sg-sub { font-size: 12px; color: var(--muted); line-height: 1.7; }
 
-.sg-groups {
-  padding: 8px 20px 0;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
+.sg-groups { padding: 8px 20px 0; display: flex; flex-direction: column; gap: 12px; }
 
 .sg-btn {
-  background: var(--surface);
-  border-radius: 12px;
-  padding: 20px 22px;
-  cursor: pointer;
-  border: 1.5px solid var(--border);
-  transition: all .2s;
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  text-align: left;
-  width: 100%;
-  font-family: 'Noto Sans TC', sans-serif;
+  background: var(--surface); border-radius: 12px; padding: 20px 22px;
+  cursor: pointer; border: 1.5px solid var(--border); transition: all .2s;
+  display: flex; align-items: flex-start; gap: 16px;
+  text-align: left; width: 100%; font-family: 'Noto Sans TC', sans-serif;
 }
 .sg-btn:active { transform: scale(.98); }
-
-.sg-num {
-  font-family: 'Noto Serif TC', serif;
-  font-size: 32px;
-  font-weight: 900;
-  line-height: 1;
-  flex-shrink: 0;
-}
+.sg-num { font-family: 'Noto Serif TC', serif; font-size: 32px; font-weight: 900; line-height: 1; flex-shrink: 0; }
 .g1-btn .sg-num { color: var(--g1); }
 .g2-btn .sg-num { color: var(--g2); }
 .g3-btn .sg-num { color: var(--g3); }
 .g4-btn .sg-num { color: var(--g4); }
-
 .g1-btn { border-color: rgba(232,160,69,.2); }
 .g2-btn { border-color: rgba(91,168,138,.2); }
 .g3-btn { border-color: rgba(192,84,74,.2); }
 .g4-btn { border-color: rgba(107,143,201,.2); }
-
-.g1-btn:hover, .g1-btn:active { background: rgba(232,160,69,.07); border-color: rgba(232,160,69,.4); }
-.g2-btn:hover, .g2-btn:active { background: rgba(91,168,138,.07); border-color: rgba(91,168,138,.4); }
-.g3-btn:hover, .g3-btn:active { background: rgba(192,84,74,.07); border-color: rgba(192,84,74,.4); }
-.g4-btn:hover, .g4-btn:active { background: rgba(107,143,201,.07); border-color: rgba(107,143,201,.4); }
-
+.g1-btn:active { background: rgba(232,160,69,.07); }
+.g2-btn:active { background: rgba(91,168,138,.07); }
+.g3-btn:active { background: rgba(192,84,74,.07); }
+.g4-btn:active { background: rgba(107,143,201,.07); }
 .sg-info { flex: 1; }
 .sg-info strong { display: block; font-size: 15px; font-weight: 700; margin-bottom: 4px; color: var(--text); }
 .sg-info span { font-size: 12px; color: var(--muted); line-height: 1.5; }
 
 /* ── ANSWER SCREEN ── */
 .ans-header {
-  padding: 28px 24px 20px;
-  border-bottom: 1px solid var(--border);
-  position: sticky;
-  top: 0;
-  background: var(--bg);
-  z-index: 10;
+  padding: 28px 24px 20px; border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; background: var(--bg); z-index: 10;
 }
 .ans-back {
-  font-size: 12px;
-  color: var(--muted);
-  cursor: pointer;
-  margin-bottom: 14px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  background: none;
-  border: none;
-  font-family: 'Noto Sans TC', sans-serif;
-  padding: 0;
+  font-size: 12px; color: var(--muted); cursor: pointer; margin-bottom: 14px;
+  display: flex; align-items: center; gap: 6px;
+  background: none; border: none; font-family: 'Noto Sans TC', sans-serif; padding: 0;
 }
-.ans-back:active { color: var(--text); }
-
 .ans-group-badge {
-  display: inline-block;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  padding: 4px 10px;
-  border-radius: 3px;
-  margin-bottom: 10px;
+  display: inline-block; font-size: 10px; font-weight: 700;
+  letter-spacing: 2px; padding: 4px 10px; border-radius: 3px; margin-bottom: 10px;
 }
 .badge-g1 { background: rgba(232,160,69,.15); color: var(--g1); border: 1px solid rgba(232,160,69,.3); }
 .badge-g2 { background: rgba(91,168,138,.15); color: var(--g2); border: 1px solid rgba(91,168,138,.3); }
 .badge-g3 { background: rgba(192,84,74,.15); color: var(--g3); border: 1px solid rgba(192,84,74,.3); }
 .badge-g4 { background: rgba(107,143,201,.15); color: var(--g4); border: 1px solid rgba(107,143,201,.3); }
+.ans-scenario-title { font-family: 'Noto Serif TC', serif; font-size: 17px; font-weight: 700; line-height: 1.4; }
 
-.ans-scenario-title {
-  font-family: 'Noto Serif TC', serif;
-  font-size: 17px;
-  font-weight: 700;
-  line-height: 1.4;
-}
-
-/* question tabs */
 .q-tabs-mobile {
-  display: flex;
-  gap: 6px;
-  padding: 16px 24px 0;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
+  display: flex; gap: 6px; padding: 16px 24px 0;
+  overflow-x: auto; -webkit-overflow-scrolling: touch;
 }
 .qtm {
-  flex-shrink: 0;
-  font-size: 12px;
-  font-weight: 700;
-  padding: 7px 14px;
-  border-radius: 20px;
-  border: 1px solid var(--border);
-  background: transparent;
-  color: var(--muted);
-  cursor: pointer;
-  font-family: 'Noto Sans TC', sans-serif;
-  transition: all .18s;
-  white-space: nowrap;
+  flex-shrink: 0; font-size: 12px; font-weight: 700; padding: 7px 16px;
+  border-radius: 20px; border: 1px solid var(--border); background: transparent;
+  color: var(--muted); cursor: pointer; font-family: 'Noto Sans TC', sans-serif;
+  transition: all .18s; white-space: nowrap;
 }
 .qtm.active { background: var(--gold); color: var(--bg); border-color: var(--gold); }
 
-/* question body */
 .ans-body { padding: 20px 24px; }
 
 .ans-scenario-box {
-  border-radius: 10px;
-  padding: 16px 18px;
-  margin-bottom: 20px;
-  border-left: 3px solid;
-  background: rgba(255,255,255,.03);
+  border-radius: 10px; padding: 16px 18px; margin-bottom: 20px;
+  border-left: 3px solid; background: rgba(255,255,255,.03);
 }
 .g1-scene { border-color: var(--g1); }
 .g2-scene { border-color: var(--g2); }
 .g3-scene { border-color: var(--g3); }
 .g4-scene { border-color: var(--g4); }
-
 .scene-label { font-size: 10px; letter-spacing: 2px; font-weight: 700; margin-bottom: 6px; }
 .g1-scene .scene-label { color: var(--g1); }
 .g2-scene .scene-label { color: var(--g2); }
 .g3-scene .scene-label { color: var(--g3); }
 .g4-scene .scene-label { color: var(--g4); }
-
-.scene-text { font-size: 13px; line-height: 1.8; color: rgba(240,236,227,.75); }
+.scene-text { font-size: 13px; line-height: 1.85; color: rgba(240,236,227,.78); }
 
 .q-display {
-  background: var(--surface);
-  border-radius: 10px;
-  padding: 16px 18px;
-  margin-bottom: 20px;
-  border: 1px solid var(--border);
+  background: var(--surface); border-radius: 10px; padding: 16px 18px;
+  margin-bottom: 16px; border: 1px solid var(--border);
 }
 .q-display-label { font-size: 10px; letter-spacing: 2px; color: var(--gold); font-weight: 700; margin-bottom: 8px; }
 .q-display-text { font-size: 15px; font-weight: 700; line-height: 1.6; font-family: 'Noto Serif TC', serif; }
 
-/* textarea */
+/* ── HINT ── */
+.hint-btn {
+  display: flex; align-items: center; gap: 8px;
+  background: transparent; border: 1px dashed rgba(212,168,67,.4);
+  border-radius: 8px; color: var(--gold);
+  font-family: 'Noto Sans TC', sans-serif; font-size: 12px; font-weight: 700;
+  padding: 10px 16px; cursor: pointer; width: 100%;
+  margin-bottom: 16px; letter-spacing: 1px; transition: all .18s;
+}
+.hint-btn:active { background: rgba(212,168,67,.08); }
+.hint-arrow { transition: transform .25s; font-size: 10px; margin-left: auto; }
+.hint-btn.open .hint-arrow { transform: rotate(180deg); }
+
+.hint-panel {
+  display: none; background: rgba(212,168,67,.06);
+  border: 1px solid rgba(212,168,67,.2); border-radius: 10px;
+  padding: 16px 18px; margin-bottom: 16px;
+  animation: fadeDown .25s ease both;
+}
+.hint-panel.visible { display: block; }
+@keyframes fadeDown { from{opacity:0;transform:translateY(-6px)} to{opacity:1;transform:translateY(0)} }
+
+.hint-item { margin-bottom: 14px; }
+.hint-item:last-child { margin-bottom: 0; }
+.hint-item-title { font-size: 11px; font-weight: 700; letter-spacing: 1px; color: var(--gold); margin-bottom: 5px; }
+.hint-item-body { font-size: 13px; line-height: 1.8; color: rgba(240,236,227,.78); }
+.hint-steps { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.hint-step-chip {
+  background: rgba(212,168,67,.1); border: 1px solid rgba(212,168,67,.2);
+  border-radius: 4px; padding: 4px 10px; font-size: 11px; color: var(--gold);
+}
+
+/* ── TEXTAREA & SUBMIT ── */
 .ans-textarea {
-  width: 100%;
-  background: var(--surface);
-  border: 1.5px solid var(--border);
-  border-radius: 10px;
-  padding: 16px;
-  font-family: 'Noto Sans TC', sans-serif;
-  font-size: 15px;
-  line-height: 1.75;
-  color: var(--text);
-  resize: none;
-  min-height: 140px;
-  outline: none;
-  transition: border-color .2s;
-  -webkit-appearance: none;
+  width: 100%; background: var(--surface); border: 1.5px solid var(--border);
+  border-radius: 10px; padding: 16px; font-family: 'Noto Sans TC', sans-serif;
+  font-size: 15px; line-height: 1.75; color: var(--text); resize: none;
+  min-height: 140px; outline: none; transition: border-color .2s; -webkit-appearance: none;
 }
 .ans-textarea:focus { border-color: var(--gold); }
 .ans-textarea::placeholder { color: var(--muted); }
-
 .ans-char { font-size: 11px; color: var(--muted); text-align: right; margin-top: 6px; margin-bottom: 20px; }
 
-/* submit button */
 .submit-btn {
-  width: 100%;
-  background: var(--gold);
-  color: var(--bg);
-  font-family: 'Noto Sans TC', sans-serif;
-  font-size: 15px;
-  font-weight: 700;
-  padding: 16px;
-  border-radius: 12px;
-  border: none;
-  cursor: pointer;
-  letter-spacing: 1px;
-  transition: all .18s;
-  -webkit-appearance: none;
+  width: 100%; background: var(--gold); color: var(--bg);
+  font-family: 'Noto Sans TC', sans-serif; font-size: 15px; font-weight: 700;
+  padding: 16px; border-radius: 12px; border: none; cursor: pointer;
+  letter-spacing: 1px; transition: all .18s; -webkit-appearance: none;
 }
 .submit-btn:active { transform: scale(.98); opacity: .9; }
 .submit-btn:disabled { opacity: .4; pointer-events: none; }
 .submit-btn.loading { background: var(--surface); color: var(--muted); }
 
-/* submitted state */
-.submitted-box {
-  text-align: center;
-  padding: 40px 24px;
-}
+.submitted-box { text-align: center; padding: 40px 24px; }
 .submitted-icon { font-size: 56px; margin-bottom: 16px; }
-.submitted-title {
-  font-family: 'Noto Serif TC', serif;
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 8px;
-  color: #4caf50;
-}
+.submitted-title { font-family: 'Noto Serif TC', serif; font-size: 20px; font-weight: 700; margin-bottom: 8px; color: #4caf50; }
 .submitted-sub { font-size: 13px; color: var(--muted); line-height: 1.7; }
 .resubmit-btn {
-  margin-top: 24px;
-  background: transparent;
-  border: 1px solid var(--border);
-  color: var(--muted);
-  font-family: 'Noto Sans TC', sans-serif;
-  font-size: 12px;
-  padding: 10px 20px;
-  border-radius: 8px;
-  cursor: pointer;
-  letter-spacing: 1px;
+  margin-top: 24px; background: transparent; border: 1px solid var(--border);
+  color: var(--muted); font-family: 'Noto Sans TC', sans-serif;
+  font-size: 12px; padding: 10px 20px; border-radius: 8px; cursor: pointer; letter-spacing: 1px;
 }
-.resubmit-btn:active { color: var(--text); border-color: rgba(255,255,255,.2); }
 </style>
 </head>
 <body>
 
-<!-- ══ SCREEN 1: SELECT GROUP ══ -->
 <div class="screen active" id="screen-select">
   <div class="sg-header">
     <div class="sg-tag">GLASSER · 現實治療理論</div>
     <div class="sg-title">請選擇<br>你的組別</div>
     <div class="sg-sub">選好後輸入討論結果<br>答案會即時出現在投影螢幕上</div>
   </div>
-
   <div class="sg-groups">
     <button class="sg-btn g1-btn" onclick="selectGroup(1)">
       <div class="sg-num">1</div>
       <div class="sg-info">
         <strong>第一組</strong>
-        <span>「都是他先惹我的！」<br>小凱動手推人的情境</span>
+        <span>「都是他先罵我的！」<br>許巧新衝突情境</span>
       </div>
     </button>
     <button class="sg-btn g2-btn" onclick="selectGroup(2)">
       <div class="sg-num">2</div>
       <div class="sg-info">
         <strong>第二組</strong>
-        <span>「反正學這個沒用。」<br>小敏冷漠抗拒的情境</span>
+        <span>「反正學這個沒用。」<br>後藤新平冷漠情境</span>
       </div>
     </button>
     <button class="sg-btn g3-btn" onclick="selectGroup(3)">
       <div class="sg-num">3</div>
       <div class="sg-info">
         <strong>第三組</strong>
-        <span>「我已經答應但沒做到。」<br>小哲契約失效的情境</span>
+        <span>「老師對不起，我又忘了。」<br>劉恭顯契約失效情境</span>
       </div>
     </button>
     <button class="sg-btn g4-btn" onclick="selectGroup(4)">
       <div class="sg-num">4</div>
       <div class="sg-info">
         <strong>第四組</strong>
-        <span>「全班都在聊為什麼只說我？」<br>阿翰說不公平的情境</span>
+        <span>「為什麼只叫我？很不公平！」<br>曾國藩課堂情境</span>
       </div>
     </button>
   </div>
 </div>
 
-<!-- ══ SCREEN 2: ANSWER ══ -->
 <div class="screen" id="screen-answer">
   <div class="ans-header">
     <button class="ans-back" onclick="goBack()">← 重新選組</button>
     <div class="ans-group-badge" id="groupBadge"></div>
     <div class="ans-scenario-title" id="scenarioTitle"></div>
   </div>
-
   <div class="q-tabs-mobile" id="qTabsMobile"></div>
-
   <div class="ans-body" id="ansBody"></div>
 </div>
 
 <script>
-// ── FIREBASE ──
 const firebaseConfig = {
   apiKey: "AIzaSyCbR0qd9-uN844Ql-ylCi1OduyV_4Oyixc",
   authDomain: "test-463e5.firebaseapp.com",
@@ -348,72 +250,74 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const db = firebase.database();
 
-// ── DATA ──
+const questions = [
+  '身為老師的你，第一句話應該怎麼回應？為什麼這樣說？',
+  '學生的回應背後有什麼未被滿足的需求？你如何引導他做出「有價值的判斷」？',
+  '接下來如何計畫新行為、取得承諾？',
+];
+
+const hints = [
+  {
+    items: [
+      { title: '⚠️ 避免追問原因', body: '請避免問「你為什麼這麼做？」，因為這會給學生找藉口的機會，也可能讓學生感覺老師正在責備。' },
+      { title: '🎯 專注於當下', body: '根據現實治療步驟二「辨認問題行為」，試著用啟發性的提問，例如「你正在做什麼？」、「你怎麼了？」、「怎麼回事？」來取代責問。' },
+      { title: '💬 思考重點', body: '寫下你的第一句話，並說明這句話如何讓學生把焦點放在「現在的行為」上，而不是陷入過去事件的羅生門。' },
+    ],
+    steps: []
+  },
+  {
+    items: [
+      { title: '🔍 洞察五大需求', body: '人類所有行為都是為了滿足生存、隸屬、自由、權力、玩樂等五種基本需求。請先討論：這個學生的偏差行為背後，真正在呼求哪一種需求？' },
+      { title: '⚖️ 建立因果關係', body: '進入步驟三「徵求有價值的判斷」，請引導學生思考目前行為與結果之間的因果關係——這是因果的判斷，而非道德的批判。' },
+      { title: '💬 思考重點', body: '試著設計一句話問學生：「你現在一直做這件事，對你得到你想要的（或解決問題）有幫助嗎？」當學生自己了解行為與結果的因果，才會開始產生改變的動力。' },
+    ],
+    steps: []
+  },
+  {
+    items: [
+      { title: '🗺️ 提供選擇的計畫', body: '進入步驟四「計畫一個新的行為」，對於剛開始練習負責的學生，教師可先建議「兩個」方案讓學生選一個——當學生開始做選擇，便開始為自己的行為負責了。' },
+      { title: '🛡️ 堅守三大原則', body: '「不接受藉口」（過去的藉口無助於應付現在）、「不懲罰」（讓學生不因害怕懲罰而不承認錯誤）、「永不放棄」（重複步驟四五六直到改善）。' },
+      { title: '💬 思考重點——六個步驟', body: '' },
+    ],
+    steps: ['① 確認學生的參與', '② 辨認問題行為', '③ 徵求有價值的判斷', '④ 計畫新行為', '⑤ 取得承諾', '⑥ 執行並評估']
+  },
+];
+
 const groupData = {
   1: {
-    title: '「都是他先惹我的！」',
-    scenario: '小凱和同學起衝突後動手推人，被帶到老師面前。他交叉雙臂，第一句話就是：「都是他先罵我的，我只是還手。」',
+    title: '「都是他先罵我的！」',
+    scenario: '下課後，許巧新和同學吵架起了肢體衝突，動手推了對方。你趕到現場把兩人分開後，請許巧新先到走廊冷靜。幾分鐘後你走向許巧新，他交叉雙臂，眼神充滿著不服氣，第一句話就是：「都是他先罵我的，我只是還手而已，你為什麼只叫我出來？」',
     color: 'g1',
-    questions: [
-      '身為老師，你的第一句話應該說什麼？為什麼？',
-      '當小凱說「都是他先的」，你如何不接受藉口，又不懲罰？',
-      '如何引導他做出下次的行動計畫？（步驟四～六）',
-    ]
   },
   2: {
     title: '「反正學這個沒用。」',
-    scenario: '小敏每次上課都低頭，幾乎不參與。老師問她，她冷冷回：「反正學這個以後也用不到，我為什麼要學？」',
+    scenario: '後藤新平是班上成績中等的學生，最近幾週幾乎沒有參與任何課堂活動，每次上課都把頭低下去，或是發呆看窗外。你發現之後，在課後特意留下他關心，蹲下來輕聲問他最近怎麼了。後藤新平沉默了幾秒，冷冷地說：「反正學這個以後也用不到，我為什麼要學？你叫我學就要學嗎？」說完又把頭轉開。',
     color: 'g2',
-    questions: [
-      '這句話背後隱藏了哪種未被滿足的基本需求？',
-      '老師如何回應才能引導她做出「有價值的判斷」？',
-      '如果她下次還是一樣，老師應該怎麼辦？',
-    ]
   },
   3: {
-    title: '「我已經答應但沒做到。」',
-    scenario: '小哲上週跟老師訂了口頭契約：「下週不再遲交作業。」但這週他又遲交了，進教室還笑嘻嘻地說：「老師對不起，我忘了。」',
+    title: '「老師對不起，我又忘了。」',
+    scenario: '劉恭顯是個活潑但自我管理能力較弱的學生，上週因為多次遲交作業，已經跟你坐下來好好談過，並訂了一個口頭契約：「這週開始，不再遲交任何一科的作業。」你也表示會每天早上提醒他一次。但這週一早，劉恭顯又笑嘻嘻地走進教室，來到你面前，說：「老師對不起啦，我又忘記寫了⋯⋯」',
     color: 'g3',
-    questions: [
-      '面對「我忘了」，如何不接受藉口又不發火？',
-      '原本的口頭契約失效，步驟四到六要怎麼重啟？',
-      '重複多次都沒改善，「永不放棄」的具體做法是什麼？',
-    ]
   },
   4: {
-    title: '「全班都在聊為什麼只說我？」',
-    scenario: '上課時全排學生都在講話，老師點名阿翰，他馬上說：「老師，旁邊的人也在講，你為什麼只叫我起來？這不公平。」',
+    title: '「為什麼只叫我？很不公平！」',
+    scenario: '這節課你正在講解超級重要的重點，但靠窗那排已經開始窸窸窣窣。你掃視一圈，點名坐在中間的曾國藩：「曾國藩，請你專心。」曾國藩馬上挺起身，臉上帶著不滿，大聲說：「老師，旁邊的人也在講話，你為什麼只叫我？很不公平耶！」',
     color: 'g4',
-    questions: [
-      '老師應該先回應「公不公平」，還是聚焦在當下行為？為什麼？',
-      '如何讓阿翰做出因果關係的判斷，而非道德批判？',
-      '「引導式老師（lead-managing）」在這個情境中如何體現？',
-    ]
   },
 };
 
-// ── STATE ──
-let selectedGroup = null;
-let currentQ = 1;
-let submittedQuestions = {};
+let selectedGroup = null, currentQ = 1, submittedQuestions = {}, hintOpen = false;
 
-// ── GROUP SELECT ──
 function selectGroup(g) {
-  selectedGroup = g;
-  submittedQuestions = {};
-  currentQ = 1;
+  selectedGroup = g; submittedQuestions = {}; currentQ = 1; hintOpen = false;
   const data = groupData[g];
-
   document.getElementById('groupBadge').textContent = `第 ${g} 組`;
   document.getElementById('groupBadge').className = `ans-group-badge badge-${data.color}`;
   document.getElementById('scenarioTitle').textContent = data.title;
-
-  buildQTabs(data);
-  renderQuestion(data, 1);
-
+  buildQTabs(); renderQuestion(1);
   document.getElementById('screen-select').classList.remove('active');
   document.getElementById('screen-answer').classList.add('active');
-  window.scrollTo(0,0);
+  window.scrollTo(0, 0);
 }
 
 function goBack() {
@@ -422,31 +326,25 @@ function goBack() {
   selectedGroup = null;
 }
 
-// ── QUESTION TABS ──
-function buildQTabs(data) {
-  const container = document.getElementById('qTabsMobile');
-  container.innerHTML = data.questions.map((q,i) => `
-    <button class="qtm ${i===0?'active':''}" id="qtab-${i+1}" onclick="switchQ(${i+1})">
-      題目 ${i+1}
-    </button>
+function buildQTabs() {
+  document.getElementById('qTabsMobile').innerHTML = questions.map((_, i) => `
+    <button class="qtm ${i===0?'active':''}" onclick="switchQ(${i+1})">題目 ${i+1}</button>
   `).join('');
 }
 
 function switchQ(q) {
-  currentQ = q;
+  currentQ = q; hintOpen = false;
   document.querySelectorAll('.qtm').forEach((t,i) => t.classList.toggle('active', i+1===q));
-  renderQuestion(groupData[selectedGroup], q);
+  renderQuestion(q);
 }
 
-// ── RENDER QUESTION ──
-function renderQuestion(data, q) {
+function renderQuestion(q) {
+  const data = groupData[selectedGroup];
   const qIdx = q - 1;
-  const isSubmitted = submittedQuestions[q];
-  const sceneClass = `${data.color}-scene`;
-  const body = document.getElementById('ansBody');
+  const hint = hints[qIdx];
 
-  if (isSubmitted) {
-    body.innerHTML = `
+  if (submittedQuestions[q]) {
+    document.getElementById('ansBody').innerHTML = `
       <div class="submitted-box">
         <div class="submitted-icon">✅</div>
         <div class="submitted-title">已成功送出！</div>
@@ -456,62 +354,65 @@ function renderQuestion(data, q) {
     return;
   }
 
-  body.innerHTML = `
-    <div class="ans-scenario-box ${sceneClass}">
+  const stepsHTML = hint.steps.length
+    ? `<div class="hint-steps">${hint.steps.map(s=>`<div class="hint-step-chip">${s}</div>`).join('')}</div>` : '';
+
+  const hintItemsHTML = hint.items.map(item => `
+    <div class="hint-item">
+      <div class="hint-item-title">${item.title}</div>
+      ${item.body ? `<div class="hint-item-body">${item.body}</div>` : ''}
+    </div>`).join('');
+
+  document.getElementById('ansBody').innerHTML = `
+    <div class="ans-scenario-box ${data.color}-scene">
       <div class="scene-label">情境說明</div>
       <div class="scene-text">${data.scenario}</div>
     </div>
-
     <div class="q-display">
       <div class="q-display-label">討論題 ${q}</div>
-      <div class="q-display-text">${data.questions[qIdx]}</div>
+      <div class="q-display-text">${questions[qIdx]}</div>
     </div>
-
     <textarea class="ans-textarea" id="answerText"
       placeholder="在這裡輸入你們小組討論的答案…"
       oninput="updateChar(this)" maxlength="300"></textarea>
     <div class="ans-char"><span id="charCount">0</span> / 300</div>
-
+    <button class="hint-btn" id="hintBtn" onclick="toggleHint()">
+      💡 需要提示嗎？<span class="hint-arrow">▼</span>
+    </button>
+    <div class="hint-panel" id="hintPanel">
+      ${hintItemsHTML}${stepsHTML}
+    </div>
     <button class="submit-btn" id="submitBtn" onclick="submitAnswer(${q})">
       送出答案到投影螢幕
-    </button>
-  `;
+    </button>`;
+}
+
+function toggleHint() {
+  hintOpen = !hintOpen;
+  document.getElementById('hintPanel').classList.toggle('visible', hintOpen);
+  document.getElementById('hintBtn').classList.toggle('open', hintOpen);
 }
 
 function updateChar(el) {
   document.getElementById('charCount').textContent = el.value.length;
 }
 
-// ── SUBMIT ──
 async function submitAnswer(q) {
   const text = document.getElementById('answerText').value.trim();
   if (!text) { alert('請先輸入討論結果！'); return; }
-
   const btn = document.getElementById('submitBtn');
-  btn.textContent = '送出中…';
-  btn.classList.add('loading');
-  btn.disabled = true;
-
+  btn.textContent = '送出中…'; btn.classList.add('loading'); btn.disabled = true;
   try {
-    await db.ref(`answers/q${q}/group${selectedGroup}`).set({
-      text,
-      timestamp: Date.now(),
-      group: selectedGroup,
-    });
+    await db.ref(`answers/q${q}/group${selectedGroup}`).set({ text, timestamp: Date.now(), group: selectedGroup });
     submittedQuestions[q] = true;
-    renderQuestion(groupData[selectedGroup], q);
+    renderQuestion(q);
   } catch(e) {
     btn.textContent = '送出失敗，請再試一次';
-    btn.classList.remove('loading');
-    btn.disabled = false;
-    console.error(e);
+    btn.classList.remove('loading'); btn.disabled = false;
   }
 }
 
-function resetSubmit(q) {
-  submittedQuestions[q] = false;
-  renderQuestion(groupData[selectedGroup], q);
-}
+function resetSubmit(q) { submittedQuestions[q] = false; renderQuestion(q); }
 </script>
 </body>
 </html>

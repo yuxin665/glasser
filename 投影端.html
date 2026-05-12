@@ -23,269 +23,163 @@
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: 'Noto Sans TC', sans-serif;
-  min-height: 100vh;
-  overflow-x: hidden;
-}
+body { background: var(--bg); color: var(--text); font-family: 'Noto Sans TC', sans-serif; min-height: 100vh; }
 
 /* ── HEADER ── */
 .header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px 40px;
-  border-bottom: 1px solid var(--border);
-  background: var(--surface);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 40px; border-bottom: 1px solid var(--border); background: var(--surface);
 }
-.header-left { display: flex; align-items: center; gap: 16px; }
-.header-title {
-  font-family: 'Noto Serif TC', serif;
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--gold);
-}
+.header-title { font-family: 'Noto Serif TC', serif; font-size: 18px; font-weight: 700; color: var(--gold); }
 .header-sub { font-size: 11px; color: var(--muted); letter-spacing: 2px; }
-.live-dot {
-  display: flex; align-items: center; gap: 8px;
-  font-size: 11px; color: var(--muted); letter-spacing: 2px;
-}
-.dot {
-  width: 8px; height: 8px; border-radius: 50%;
-  background: #4caf50;
-  animation: blink 1.5s infinite;
-}
+.live-dot { display: flex; align-items: center; gap: 8px; font-size: 11px; color: var(--muted); letter-spacing: 2px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: #4caf50; animation: blink 1.5s infinite; }
 @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
 
-/* ── QUESTION CONTROL ── */
+/* ── CONTROL BAR ── */
 .control-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 16px 40px;
-  background: rgba(255,255,255,0.02);
-  border-bottom: 1px solid var(--border);
-  gap: 12px;
-  flex-wrap: wrap;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 40px; background: rgba(255,255,255,.02);
+  border-bottom: 1px solid var(--border); gap: 12px; flex-wrap: wrap;
 }
 .q-label { font-size: 11px; color: var(--muted); letter-spacing: 2px; white-space: nowrap; }
 .q-tabs { display: flex; gap: 6px; }
 .q-tab {
-  font-family: 'Noto Sans TC', sans-serif;
-  font-size: 12px;
-  font-weight: 700;
-  padding: 7px 16px;
-  border-radius: 4px;
-  border: 1px solid var(--border);
-  background: transparent;
-  color: var(--muted);
-  cursor: pointer;
-  transition: all .2s;
-  letter-spacing: 1px;
+  font-family: 'Noto Sans TC', sans-serif; font-size: 12px; font-weight: 700;
+  padding: 7px 18px; border-radius: 4px; border: 1px solid var(--border);
+  background: transparent; color: var(--muted); cursor: pointer; transition: all .2s; letter-spacing: 1px;
 }
 .q-tab:hover { border-color: rgba(255,255,255,.2); color: var(--text); }
 .q-tab.active { background: var(--gold); color: var(--bg); border-color: var(--gold); }
 
 .ctrl-btns { display: flex; gap: 8px; }
 .ctrl-btn {
-  font-family: 'Noto Sans TC', sans-serif;
-  font-size: 11px;
-  font-weight: 700;
-  padding: 7px 14px;
-  border-radius: 4px;
-  border: 1px solid var(--border);
-  background: transparent;
-  color: var(--muted);
-  cursor: pointer;
-  letter-spacing: 1px;
-  transition: all .2s;
+  font-family: 'Noto Sans TC', sans-serif; font-size: 11px; font-weight: 700;
+  padding: 7px 14px; border-radius: 4px; border: 1px solid var(--border);
+  background: transparent; color: var(--muted); cursor: pointer; letter-spacing: 1px; transition: all .2s;
 }
 .ctrl-btn:hover { border-color: rgba(255,255,255,.2); color: var(--text); }
 .ctrl-btn.danger:hover { border-color: var(--g3); color: var(--g3); }
 
-/* ── CURRENT QUESTION DISPLAY ── */
-.current-q {
-  padding: 24px 40px 16px;
+/* ── CURRENT QUESTIONS PANEL ── */
+.questions-panel {
+  padding: 20px 40px 16px;
+  border-bottom: 1px solid var(--border);
 }
-.cq-tag { font-size: 10px; letter-spacing: 3px; color: var(--gold); font-weight: 700; margin-bottom: 8px; }
-.cq-text {
-  font-family: 'Noto Serif TC', serif;
-  font-size: 22px;
-  font-weight: 700;
-  line-height: 1.5;
-  color: var(--text);
+.qp-label { font-size: 10px; letter-spacing: 3px; color: var(--gold); font-weight: 700; margin-bottom: 14px; }
+.qp-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
 }
+.qp-item {
+  display: flex; align-items: flex-start; gap: 10px;
+  background: rgba(255,255,255,.03); border-radius: 6px;
+  padding: 12px 14px; border: 1px solid var(--border);
+}
+.qp-badge {
+  font-size: 9px; font-weight: 700; letter-spacing: 1.5px;
+  padding: 3px 8px; border-radius: 3px; flex-shrink: 0; margin-top: 1px; white-space: nowrap;
+}
+.qp-g1 { background: rgba(232,160,69,.15); color: var(--g1); border: 1px solid rgba(232,160,69,.25); }
+.qp-g2 { background: rgba(91,168,138,.15); color: var(--g2); border: 1px solid rgba(91,168,138,.25); }
+.qp-g3 { background: rgba(192,84,74,.15); color: var(--g3); border: 1px solid rgba(192,84,74,.25); }
+.qp-g4 { background: rgba(107,143,201,.15); color: var(--g4); border: 1px solid rgba(107,143,201,.25); }
+.qp-text { font-size: 12px; line-height: 1.65; color: rgba(240,236,227,.8); }
+.qp-name { font-size: 10px; color: var(--muted); margin-top: 3px; }
 
 /* ── ANSWERS GRID ── */
 .answers-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-  padding: 16px 40px 40px;
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 14px; padding: 16px 40px 40px;
 }
 
 .group-panel {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  overflow: hidden;
-  min-height: 200px;
-  display: flex;
-  flex-direction: column;
-  transition: border-color .3s;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 8px; overflow: hidden; min-height: 180px;
+  display: flex; flex-direction: column; transition: border-color .3s;
 }
 .group-panel.has-answer { border-color: rgba(255,255,255,.12); }
 
 .gp-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 14px 20px;
-  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 18px; border-bottom: 1px solid var(--border);
 }
 .gp-badge {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  padding: 4px 10px;
-  border-radius: 3px;
+  font-size: 10px; font-weight: 700; letter-spacing: 2px; padding: 4px 10px; border-radius: 3px;
 }
 .g1 .gp-badge { background: rgba(232,160,69,.15); color: var(--g1); border: 1px solid rgba(232,160,69,.25); }
 .g2 .gp-badge { background: rgba(91,168,138,.15); color: var(--g2); border: 1px solid rgba(91,168,138,.25); }
 .g3 .gp-badge { background: rgba(192,84,74,.15); color: var(--g3); border: 1px solid rgba(192,84,74,.25); }
 .g4 .gp-badge { background: rgba(107,143,201,.15); color: var(--g4); border: 1px solid rgba(107,143,201,.25); }
-
-.gp-title { font-size: 13px; font-weight: 700; flex: 1; }
-.gp-status {
-  font-size: 10px;
-  letter-spacing: 1px;
-  color: var(--muted);
-}
+.gp-title { font-size: 12px; font-weight: 700; flex: 1; }
+.gp-status { font-size: 10px; letter-spacing: 1px; color: var(--muted); }
 .gp-status.submitted { color: #4caf50; }
 
 .gp-body {
-  flex: 1;
-  padding: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  flex: 1; padding: 16px 18px;
+  display: flex; align-items: center; justify-content: center;
 }
-.gp-empty {
-  text-align: center;
-  color: var(--muted);
-  font-size: 12px;
-  letter-spacing: 1px;
+.gp-empty { text-align: center; color: var(--muted); font-size: 12px; letter-spacing: 1px; }
+.waiting-dots span {
+  display: inline-block; animation: bounce 1.2s infinite;
+  font-size: 20px; color: rgba(255,255,255,.1);
 }
-.gp-empty .waiting-dots span {
-  display: inline-block;
-  animation: bounce 1.2s infinite;
-  font-size: 20px;
-  color: rgba(255,255,255,.1);
-}
-.gp-empty .waiting-dots span:nth-child(2) { animation-delay: .2s; }
-.gp-empty .waiting-dots span:nth-child(3) { animation-delay: .4s; }
+.waiting-dots span:nth-child(2) { animation-delay: .2s; }
+.waiting-dots span:nth-child(3) { animation-delay: .4s; }
 @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
 
 .gp-answer {
-  font-size: 15px;
-  line-height: 1.85;
-  color: var(--text);
-  width: 100%;
+  font-size: 14px; line-height: 1.85; color: var(--text); width: 100%;
   animation: slideIn .4s ease both;
 }
 @keyframes slideIn { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
 
 .gp-time {
-  padding: 8px 20px 12px;
-  font-size: 10px;
-  color: var(--muted);
-  letter-spacing: 1px;
-  border-top: 1px solid var(--border);
+  padding: 6px 18px 10px; font-size: 10px;
+  color: var(--muted); letter-spacing: 1px; border-top: 1px solid var(--border);
 }
-
-/* ── SCENARIO SIDEBAR ── */
-.scenario-bar {
-  padding: 0 40px 20px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-}
-.sc-card {
-  background: rgba(255,255,255,.02);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 12px 14px;
-  font-size: 11px;
-  line-height: 1.6;
-  color: var(--muted);
-}
-.sc-card strong { display: block; font-size: 10px; letter-spacing: 2px; margin-bottom: 4px; }
-.sc-card.g1 strong { color: var(--g1); }
-.sc-card.g2 strong { color: var(--g2); }
-.sc-card.g3 strong { color: var(--g3); }
-.sc-card.g4 strong { color: var(--g4); }
 
 /* ── TIMER ── */
 .timer-overlay {
-  position: fixed;
-  bottom: 28px; right: 36px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 14px 20px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  z-index: 50;
+  position: fixed; bottom: 28px; right: 36px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 8px; padding: 14px 20px;
+  display: flex; align-items: center; gap: 12px; z-index: 50;
   box-shadow: 0 8px 32px rgba(0,0,0,.5);
 }
 .timer-num {
-  font-family: 'Noto Serif TC', serif;
-  font-size: 28px;
-  font-weight: 900;
-  color: var(--gold);
-  letter-spacing: 2px;
-  min-width: 72px;
+  font-family: 'Noto Serif TC', serif; font-size: 28px; font-weight: 900;
+  color: var(--gold); letter-spacing: 2px; min-width: 72px;
 }
 .timer-num.urgent { color: var(--g3); animation: blink .7s infinite; }
 .tbtn {
-  font-size: 11px; font-weight: 700;
-  padding: 6px 12px; border-radius: 4px;
-  border: 1px solid var(--border);
-  background: transparent; color: var(--text);
-  cursor: pointer; font-family: 'Noto Sans TC', sans-serif;
-  transition: all .18s; letter-spacing: 1px;
+  font-size: 11px; font-weight: 700; padding: 6px 12px; border-radius: 4px;
+  border: 1px solid var(--border); background: transparent; color: var(--text);
+  cursor: pointer; font-family: 'Noto Sans TC', sans-serif; transition: all .18s; letter-spacing: 1px;
 }
 .tbtn:hover { border-color: var(--gold); color: var(--gold); }
 
 @media (max-width: 900px) {
-  .answers-grid { grid-template-columns: 1fr; padding: 16px 20px 40px; }
-  .scenario-bar { grid-template-columns: repeat(2,1fr); padding: 0 20px 16px; }
-  .control-bar, .current-q { padding-left: 20px; padding-right: 20px; }
-  .header { padding: 16px 20px; }
+  .answers-grid, .questions-panel, .control-bar, .header { padding-left: 20px; padding-right: 20px; }
+  .answers-grid { grid-template-columns: 1fr; }
+  .qp-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
 <body>
 
 <div class="header">
-  <div class="header-left">
-    <div>
-      <div class="header-title">Glasser 現實治療理論</div>
-      <div class="header-sub">小組討論 · 即時回應系統 · 投影端</div>
-    </div>
+  <div>
+    <div class="header-title">Glasser 現實治療理論</div>
+    <div class="header-sub">小組討論 · 即時回應系統 · 投影端</div>
   </div>
-  <div class="live-dot">
-    <div class="dot"></div>
-    LIVE
-  </div>
+  <div class="live-dot"><div class="dot"></div>LIVE</div>
 </div>
 
 <div class="control-bar">
   <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
-    <span class="q-label">討論題：</span>
+    <span class="q-label">切換題目：</span>
     <div class="q-tabs">
       <button class="q-tab active" onclick="setQuestion(1)">題目一</button>
       <button class="q-tab" onclick="setQuestion(2)">題目二</button>
@@ -297,23 +191,18 @@ body {
   </div>
 </div>
 
-<div class="current-q">
-  <div class="cq-tag">當前討論題目</div>
-  <div class="cq-text" id="currentQText">—</div>
+<!-- 各組問題一覽 -->
+<div class="questions-panel">
+  <div class="qp-label">▸ 本題各組的討論問題</div>
+  <div class="qp-grid" id="questionsGrid"></div>
 </div>
 
-<div class="scenario-bar">
-  <div class="sc-card g1"><strong>第一組</strong>「都是他先惹我的！」— 小凱動手推人</div>
-  <div class="sc-card g2"><strong>第二組</strong>「反正學這個沒用。」— 小敏冷漠抗拒</div>
-  <div class="sc-card g3"><strong>第三組</strong>「我已經答應但沒做到。」— 小哲契約失效</div>
-  <div class="sc-card g4"><strong>第四組</strong>「全班都在聊為什麼只說我？」— 阿翰說不公平</div>
-</div>
-
+<!-- 各組答案 -->
 <div class="answers-grid">
   <div class="group-panel g1" id="panel-1">
     <div class="gp-header">
       <span class="gp-badge">第一組</span>
-      <span class="gp-title">「都是他先惹我的！」</span>
+      <span class="gp-title">許巧新 ——「都是他先罵我的！」</span>
       <span class="gp-status" id="status-1">等待中</span>
     </div>
     <div class="gp-body" id="body-1">
@@ -325,7 +214,7 @@ body {
   <div class="group-panel g2" id="panel-2">
     <div class="gp-header">
       <span class="gp-badge">第二組</span>
-      <span class="gp-title">「反正學這個沒用。」</span>
+      <span class="gp-title">後藤新平 ——「反正學這個沒用。」</span>
       <span class="gp-status" id="status-2">等待中</span>
     </div>
     <div class="gp-body" id="body-2">
@@ -337,7 +226,7 @@ body {
   <div class="group-panel g3" id="panel-3">
     <div class="gp-header">
       <span class="gp-badge">第三組</span>
-      <span class="gp-title">「我已經答應但沒做到。」</span>
+      <span class="gp-title">劉恭顯 ——「老師對不起，我又忘了。」</span>
       <span class="gp-status" id="status-3">等待中</span>
     </div>
     <div class="gp-body" id="body-3">
@@ -349,7 +238,7 @@ body {
   <div class="group-panel g4" id="panel-4">
     <div class="gp-header">
       <span class="gp-badge">第四組</span>
-      <span class="gp-title">「全班都在聊為什麼只說我？」</span>
+      <span class="gp-title">曾國藩 ——「為什麼只叫我？很不公平！」</span>
       <span class="gp-status" id="status-4">等待中</span>
     </div>
     <div class="gp-body" id="body-4">
@@ -359,7 +248,6 @@ body {
   </div>
 </div>
 
-<!-- TIMER -->
 <div class="timer-overlay">
   <div class="timer-num" id="timerNum">05:00</div>
   <button class="tbtn" id="timerBtn" onclick="toggleTimer()">▶ 開始</button>
@@ -367,7 +255,6 @@ body {
 </div>
 
 <script>
-// ── FIREBASE ──
 const firebaseConfig = {
   apiKey: "AIzaSyCbR0qd9-uN844Ql-ylCi1OduyV_4Oyixc",
   authDomain: "test-463e5.firebaseapp.com",
@@ -380,42 +267,50 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const db = firebase.database();
 
-// ── QUESTIONS ──
-const questions = {
+// 每題、每組的問題文字
+const qPerGroup = {
   1: [
-    '身為老師，你的第一句話應該是什麼？為什麼？',
-    '這句話背後隱藏了哪種未被滿足的基本需求？',
-    '面對「我忘了」，如何不接受藉口又不發火？',
-    '老師應該先回應「公不公平」，還是聚焦在當下行為？為什麼？',
+    { g: 1, name: '許巧新', text: '身為老師的你，第一句話應該怎麼回應？為什麼這樣說？（針對許巧新的情境）' },
+    { g: 2, name: '後藤新平', text: '身為老師的你，第一句話應該怎麼回應？為什麼這樣說？（針對後藤新平的情境）' },
+    { g: 3, name: '劉恭顯', text: '身為老師的你，第一句話應該怎麼回應？為什麼這樣說？（針對劉恭顯的情境）' },
+    { g: 4, name: '曾國藩', text: '身為老師的你，第一句話應該怎麼回應？為什麼這樣說？（針對曾國藩的情境）' },
   ],
   2: [
-    '當學生說「都是他先的 / 沒用 / 我忘了 / 不公平」，如何不接受藉口又不懲罰？',
-    '老師如何回應才能引導學生做出「有價值的判斷」？',
-    '如何讓學生做出因果判斷，而非道德批判？',
+    { g: 1, name: '許巧新', text: '學生的回應背後有什麼未被滿足的需求？你如何引導他做出「有價值的判斷」？（針對許巧新的情境）' },
+    { g: 2, name: '後藤新平', text: '學生的回應背後有什麼未被滿足的需求？你如何引導他做出「有價值的判斷」？（針對後藤新平的情境）' },
+    { g: 3, name: '劉恭顯', text: '學生的回應背後有什麼未被滿足的需求？你如何引導他做出「有價值的判斷」？（針對劉恭顯的情境）' },
+    { g: 4, name: '曾國藩', text: '學生的回應背後有什麼未被滿足的需求？你如何引導他做出「有價值的判斷」？（針對曾國藩的情境）' },
   ],
   3: [
-    '如何引導學生做出下次的行動計畫？（步驟四～六）',
-    '如果學生一直沒改善，老師應該怎麼辦？（永不放棄的具體做法）',
-    '「引導式老師（lead-managing）」在這個情境中如何體現？',
+    { g: 1, name: '許巧新', text: '接下來如何計畫新行為、取得承諾？（針對許巧新的情境）' },
+    { g: 2, name: '後藤新平', text: '接下來如何計畫新行為、取得承諾？（針對後藤新平的情境）' },
+    { g: 3, name: '劉恭顯', text: '接下來如何計畫新行為、取得承諾？（針對劉恭顯的情境）' },
+    { g: 4, name: '曾國藩', text: '接下來如何計畫新行為、取得承諾？（針對曾國藩的情境）' },
   ],
 };
 
+const gColors = ['qp-g1','qp-g2','qp-g3','qp-g4'];
 let currentQ = 1;
+let currentListener = null;
 
 function setQuestion(q) {
   currentQ = q;
   document.querySelectorAll('.q-tab').forEach((t,i) => t.classList.toggle('active', i+1===q));
-  const qTexts = [
-    '第一題：情境發生了——你的第一反應是什麼？',
-    '第二題：如何引導學生做出「有價值的判斷」？',
-    '第三題：接下來的行動計畫與承諾怎麼做？',
-  ];
-  document.getElementById('currentQText').textContent = qTexts[q-1];
+  renderQuestionsGrid(q);
   listenAnswers();
 }
 
-// ── FIREBASE LISTENER ──
-let currentListener = null;
+function renderQuestionsGrid(q) {
+  const items = qPerGroup[q];
+  document.getElementById('questionsGrid').innerHTML = items.map((item, i) => `
+    <div class="qp-item">
+      <div class="qp-badge ${gColors[i]}">第 ${item.g} 組</div>
+      <div>
+        <div class="qp-text">${item.text}</div>
+      </div>
+    </div>
+  `).join('');
+}
 
 function listenAnswers() {
   if (currentListener) currentListener();
@@ -428,11 +323,9 @@ function listenAnswers() {
       const status = document.getElementById(`status-${g}`);
       const time = document.getElementById(`time-${g}`);
       const panel = document.getElementById(`panel-${g}`);
-
       if (ans && ans.text) {
         body.innerHTML = `<div class="gp-answer">${ans.text.replace(/\n/g,'<br>')}</div>`;
-        status.textContent = '已回傳 ✓';
-        status.className = 'gp-status submitted';
+        status.textContent = '已回傳 ✓'; status.className = 'gp-status submitted';
         panel.classList.add('has-answer');
         if (ans.timestamp) {
           const d = new Date(ans.timestamp);
@@ -440,10 +333,8 @@ function listenAnswers() {
         }
       } else {
         body.innerHTML = `<div class="gp-empty"><div class="waiting-dots"><span>·</span><span>·</span><span>·</span></div><br>等待小組回傳答案</div>`;
-        status.textContent = '等待中';
-        status.className = 'gp-status';
-        panel.classList.remove('has-answer');
-        time.textContent = '';
+        status.textContent = '等待中'; status.className = 'gp-status';
+        panel.classList.remove('has-answer'); time.textContent = '';
       }
     });
   });
@@ -457,11 +348,9 @@ function clearAnswers() {
 
 // ── TIMER ──
 let timerSec = 300, timerRunning = false, timerInterval = null;
-
 function toggleTimer() {
   if (timerRunning) {
-    clearInterval(timerInterval);
-    timerRunning = false;
+    clearInterval(timerInterval); timerRunning = false;
     document.getElementById('timerBtn').textContent = '▶ 繼續';
   } else {
     timerRunning = true;
@@ -472,23 +361,17 @@ function toggleTimer() {
     }, 1000);
   }
 }
-
 function resetTimer() {
-  clearInterval(timerInterval);
-  timerRunning = false;
-  timerSec = 300;
-  updateTimer();
+  clearInterval(timerInterval); timerRunning = false; timerSec = 300; updateTimer();
   document.getElementById('timerBtn').textContent = '▶ 開始';
   document.getElementById('timerNum').classList.remove('urgent');
 }
-
 function updateTimer() {
   const m = Math.floor(timerSec/60), s = timerSec%60;
   document.getElementById('timerNum').textContent = `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
-  document.getElementById('timerNum').classList.toggle('urgent', timerSec <= 60 && timerSec > 0);
+  document.getElementById('timerNum').classList.toggle('urgent', timerSec<=60 && timerSec>0);
 }
 
-// ── INIT ──
 setQuestion(1);
 </script>
 </body>
